@@ -1,0 +1,129 @@
+swagger: '2.0'
+info:
+  title: Color Manager API
+  description: API to help manage colors
+  version: 1.0.0
+  contact:
+    name: Ben Andrew
+    email: be288688@ucf.edu
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+paths:
+  /AddColor.php:
+    post:
+      operationId: addColor
+      summary: adds a color
+      description: adds a color to the database
+      tags:
+      - Colors
+      consumes:
+      - application/json
+      produces: 
+      - application/json
+      parameters:
+      - in: body
+        name: colorAdd
+        description: adds a color
+        schema: 
+          $ref: '#/definitions/AddColor'
+      responses:
+        200:
+          description: OK
+        404:
+          description: URL Not Found
+        500:
+          description: Server Error
+  /Login.php:
+    post:
+      operationId: login
+      summary: login for user
+      description: checks database for login info
+      tags:
+      - Users
+      consumes:
+      - application/json
+      produces: 
+      - application/json
+      parameters:
+      - in: body
+        name: userLogin
+        description: logs in user
+        schema: 
+          $ref: '#/definitions/Login'
+      responses:
+        200:
+          description: OK
+        404:
+          description: URL Not Found
+        500:
+          description: Server Error
+  /SearchColors.php:
+    post:
+      operationId: searchColors
+      summary: search for a color
+      description: searches database for color
+      tags:
+      - Search
+      consumes:
+      - application/json
+      produces: 
+      - application/json
+      parameters:
+      - in: body
+        name: colorSearch
+        description: search for color
+        schema: 
+          $ref: '#/definitions/SearchColors'
+      responses:
+        200:
+          description: OK
+        404:
+          description: URL Not Found
+        500:
+          description: Server Error
+
+definitions:
+  AddColor:
+    type: object
+    required:
+    - color
+    - userId
+    properties:
+      color:
+        type: string
+        example: "Yellow-Orange"
+      userId:
+        type: string
+        example: "1"
+  Login:
+    type: object
+    required:
+    - login
+    - password
+    properties:
+      login:
+        type: string
+        example: "RickL"
+      password:
+        type: string
+        example: "COP4331"
+  SearchColors:
+    type: object
+    required:
+    - search
+    - userId
+    properties:
+      search:
+        type: string
+        example: "Bl"
+      userId:
+        type: string
+        example: "1"
+
+host: colors-lab-project.xyz
+basePath: /LAMPAPI
+schemes:
+- http
