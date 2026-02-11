@@ -19,7 +19,7 @@ Example:
 
 ## API Documentation:
 ### AddColor.php
-Stored at: /var/www/html/LAMPAPI/AddColor.php
+Stored at: /var/www/html/LAMPAPI/AddColor.php\
 Description: adds a color to the database
 
 Expects:
@@ -32,7 +32,7 @@ Returns:
     * error type, if fail
 
 ### Login.php
-Stored at: /var/www/html/LAMPAPI/Login.php
+Stored at: /var/www/html/LAMPAPI/Login.php\
 Description: logs a user into the color manager
 
 Expects:
@@ -44,7 +44,7 @@ Returns:
 * "No Records Found" error, if fail
 
 ### SearchColors.php
-Stored at: /var/www/html/LAMPAPI/SearchColors.php
+Stored at: /var/www/html/LAMPAPI/SearchColors.php\
 Description: searches database for color that mataches user input
 
 Expects:
