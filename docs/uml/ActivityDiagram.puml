@@ -1,0 +1,43 @@
+@startuml
+start
+
+:User enters login & password;
+:Click "Do It" (doLogin);
+
+:Send POST to Login.php;
+
+if (Valid credentials?) then (Yes)
+    :Receive userId, firstName, lastName;
+    :Save cookie (saveCookie);
+    :Redirect to color.html;
+
+    :readCookie();
+
+    if (userId valid?) then (Yes)
+        :User enters search term;
+        :Click Search;
+
+        :Send POST to SearchColors.php;
+
+        if (Results found?) then (Yes)
+            :Display color list;
+        else (No)
+            :Display "No results";
+        endif
+
+        :User enters new color;
+        :Click Add Color;
+
+        :Send POST to AddColor.php;
+        :Display "Color has been added";
+
+    else (No)
+        :Redirect to index.html;
+    endif
+
+else (No)
+    :Display login error;
+endif
+
+stop
+@enduml

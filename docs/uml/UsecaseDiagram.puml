@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+
+actor User
+
+rectangle "LAMP Color Web App" {
+
+    (Login)
+    (Search Colors)
+    (Add Color)
+    (Logout)
+
+    User --> (Login)
+    User --> (Search Colors)
+    User --> (Add Color)
+    User --> (Logout)
+
+    (Search Colors) .> (Login) : <<include>>
+    (Add Color) .> (Login) : <<include>>
+    (Logout) .> (Login) : <<include>>
+}
+
+@enduml

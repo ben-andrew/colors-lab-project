@@ -1,0 +1,65 @@
+@startuml
+
+' ======================
+' DATABASE CLASSES
+' ======================
+
+class User {
+    ID : int
+    FirstName : string
+    LastName : string
+    Login : string
+    Password : string
+}
+
+class Color {
+    ID : int
+    Name : string
+    UserID : int
+}
+
+User "1" --> "many" Color : owns
+
+' ======================
+' API CLASSES (PHP)
+' ======================
+
+class LoginAPI {
+    +login(login, password)
+    +returnWithInfo()
+    +returnWithError()
+}
+
+class AddColorAPI {
+    +addColor(userId, color)
+    +returnWithError()
+}
+
+class SearchColorsAPI {
+    +searchColors(userId, search)
+    +returnWithInfo()
+    +returnWithError()
+}
+
+LoginAPI --> User : queries
+AddColorAPI --> Color : inserts
+SearchColorsAPI --> Color : searches
+
+' ======================
+' FRONTEND (JS)
+' ======================
+
+class FrontendJS {
+    +doLogin()
+    +addColor()
+    +searchColor()
+    +saveCookie()
+    +readCookie()
+    +doLogout()
+}
+
+FrontendJS --> LoginAPI
+FrontendJS --> AddColorAPI
+FrontendJS --> SearchColorsAPI
+
+@enduml
