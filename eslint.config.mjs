@@ -17,6 +17,25 @@ export default defineConfig([
   },
 
   {
+    files: ["html/js/colorUtils.js"],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      }
+    }
+  },
+
+  {
+    files: ["tests/**/*.js"],
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+        ...globals.node,
+      }
+    }
+  },
+
+  {
     ignores: ["html/js/md5.js"]
   }
 ]);
